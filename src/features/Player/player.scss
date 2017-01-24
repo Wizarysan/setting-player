@@ -3,7 +3,7 @@ $button-active: #2462b6;
 
 .player {
   text-align: left;
-  justify-content: center;
+  justify-content: flex-start;
   display: block;
   @include breakpoint(sm) {
     display: flex;
@@ -26,7 +26,6 @@ $button-active: #2462b6;
   }
   @include breakpoint(sm) {
     width:initial;
-    max-width: 170px;
   }
   &__volume {
     vertical-align: middle;
@@ -42,12 +41,15 @@ $button-active: #2462b6;
     width: 90%;
     vertical-align: middle;
     display: inline-flex;
+    flex-wrap: wrap;
     justify-content: center;
     box-sizing: border-box;
     padding: 0 0 0 25px;
     @include breakpoint(sm) {
+      vertical-align: top;
       width:initial;
-      flex-direction: column;
+      flex-direction: row;
+      align-items: flex-start
     }
   }
   &__button {
@@ -56,11 +58,12 @@ $button-active: #2462b6;
     vertical-align: middle;
     cursor: pointer;
     display: inline-block;
-    max-width: 80px;  
+    max-width: 50px;  
     margin-left: 4%;
+    flex-basis: 50%;
     transition: all .1s ease-out;
     @include breakpoint(sm) {
-      max-width: 60px;
+      max-width: 50px;
       margin-bottom: 15px;
     }
     svg {
@@ -77,6 +80,6 @@ $button-active: #2462b6;
 }
 
 .icon-play {
-  margin-left: 6px;
+  margin-left: 3px;
   transition: all .1s ease-out;
 }

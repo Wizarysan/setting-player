@@ -6,7 +6,7 @@ $play-hover: #2462b6;
 .playlist {
   padding: 30px;
   @include breakpoint(sm) {
-    //max-width: 75%;
+    max-width: 80%;
     display: inline-block;
   }
 }
