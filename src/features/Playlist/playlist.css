@@ -1,0 +1,7 @@
+.playlist {
+  display: inline-block;
+  width: 70%;
+  vertical-align: top;
+  padding: 50px;
+  box-sizing: border-box;
+}

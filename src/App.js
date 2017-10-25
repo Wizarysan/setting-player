@@ -8,8 +8,8 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+          <span className="App-title glitch" data-text="幻音楽">幻音楽</span>
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title glitch" data-text="PLAYER">PLAYER</h1>
         </header>
         <Player />
       </div>

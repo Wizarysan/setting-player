@@ -3,19 +3,19 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  animation: App-logo-spin infinite 10s linear;
   height: 80px;
-  margin-bottom: 20px;
 }
 
 .App-header {
-  background-color: #222;
+  background-color: black;
   padding: 30px;
   color: white;
 }
 
 .App-title {
   font-size: 1.5em;
+  padding-right: 30px;
 }
 
 .App-intro {
@@ -25,14 +25,14 @@
 @keyframes App-logo-spin {
   0% {
     transform: rotate(0deg);
-    filter: saturate(1000%) brightness(120%);
+    filter: saturate(200%) brightness(110%);
   }
   50% {
-    filter: saturate(150%) brightness(100%);
+    filter: saturate(500%) brightness(100%);
   }
   100% {
     transform: rotate(360deg);
-    filter: saturate(1000%) brightness(120%);
+    filter: saturate(200%) brightness(110%);
   }
 }
 

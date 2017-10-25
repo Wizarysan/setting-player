@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Playlist from './../Playlist';
 
+import './player.css';
+
 class Player extends Component {
   constructor(props) {
     super(props)
@@ -43,8 +45,10 @@ class Player extends Component {
   render() {
     return (
       <div className="player">
-        <div onClick={()=>{this.startTrack()}}> Play </div>
-        <div onClick={()=>{this.pauseTrack()}}> Pause </div>
+        <div className="controls">
+          <div onClick={()=>{this.startTrack()}} className="controls__button"> Play </div>
+          <div onClick={()=>{this.pauseTrack()}} className="controls__button"> Pause </div>
+        </div>
         <Playlist loadTrack={this.loadTrack.bind(this)} />
       </div>
     );
