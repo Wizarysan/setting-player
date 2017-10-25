@@ -8,10 +8,16 @@ class Playlist extends Component {
     }
   }
 
+  loadTrack(track) {
+    console.log(this.props.loadTrack);
+    this.props.loadTrack(track);
+  }
+
   render() {
     return (
       <div className="playlist">
-
+        <div onClick={()=>{this.loadTrack('test.mp3')}}> Load test </div>
+        <div onClick={()=>{this.loadTrack('test2.mp3')}}> Load test 2 </div>
       </div>
     );
   }
