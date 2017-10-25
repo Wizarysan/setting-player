@@ -5,10 +5,14 @@ const express = require('express');
 
 var app = express();
 
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(express.static(path.join(__dirname, '')));
 
-app.all('/api/track', (req, res) => {
-  res.sendFile(path.join(__dirname, 'music/test.mp3'));
+app.all('/api/track', (req, res) => {  
+  res.sendFile(path.join(__dirname, 'music/', req.body.track));
 })
 
 app.get('*', (req, res) => {
