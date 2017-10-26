@@ -1,0 +1,40 @@
+$item-active: #c8dfff;
+$item-hover: #e5f0ff;
+
+.playlist {
+  display: inline-block;
+  width: 70%;
+  vertical-align: top;
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+.playlist__item {
+  cursor: pointer;
+  padding: 10px 5px;
+  font-size: 18px;
+  text-align: center;
+  border-bottom: 1px solid $item-hover;
+  transition: all .2s ease-out;
+  &.active {
+    background-color: $item-active;
+  }
+  &:hover {
+    background-color: $item-hover;
+  }
+  &__name {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.8;
+    max-width: 50%
+  }
+  &__play {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 10px;
+    .icon-play {
+      vertical-align: middle;
+      width: 22px;
+    }
+  }
+}

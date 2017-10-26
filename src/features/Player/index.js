@@ -56,7 +56,7 @@ class Player extends Component {
             <IconPause />
           </div>
         </div>
-        <Playlist loadTrack={this.loadTrack.bind(this)} />
+        <Playlist loadTrack={this.loadTrack.bind(this)} startTrack={this.startTrack.bind(this)} />
       </div>
     );
   }
