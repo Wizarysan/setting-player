@@ -17,8 +17,12 @@ class Playlist extends Component {
   render() {
     return (
       <div className="playlist">
-        <div onClick={()=>{this.loadTrack('test.mp3')}}> Load test </div>
-        <div onClick={()=>{this.loadTrack('test2.mp3')}}> Load test 2 </div>
+        <div onClick={()=>{this.loadTrack('test.mp3')}} className="playlist__item">
+          <div className="playlist__item__name">  Color&Color - 緑　Last Love♥護ってあげたい ～ Seventh Heaven</div>
+        </div>
+        <div onClick={()=>{this.loadTrack('test2.mp3')}} className="playlist__item">
+          <div className="playlist__item__name">Fuku6 - Toy dealer</div>
+        </div>
       </div>
     );
   }

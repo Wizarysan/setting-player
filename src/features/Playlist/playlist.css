@@ -5,3 +5,9 @@
   padding: 50px;
   box-sizing: border-box;
 }
+
+.playlist__item {
+  cursor: pointer;
+  padding: 5px;
+  font-size: 18px;
+}

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Playlist from './../Playlist';
 
+import IconPlay from './../../svg/play'
+import IconPause from './../../svg/pause'
+
 import './player.css';
 
 class Player extends Component {
@@ -46,8 +49,12 @@ class Player extends Component {
     return (
       <div className="player">
         <div className="controls">
-          <div onClick={()=>{this.startTrack()}} className="controls__button"> Play </div>
-          <div onClick={()=>{this.pauseTrack()}} className="controls__button"> Pause </div>
+          <div onClick={()=>{this.startTrack()}} className="controls__button">
+            <IconPlay />
+          </div>
+          <div onClick={()=>{this.pauseTrack()}} className="controls__button">
+            <IconPause />
+          </div>
         </div>
         <Playlist loadTrack={this.loadTrack.bind(this)} />
       </div>

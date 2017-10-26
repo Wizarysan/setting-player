@@ -1,0 +1,36 @@
+$button-active: #2462b6;
+
+.controls {
+  display: inline-block;
+  width: 30%;
+  padding: 50px;
+  box-sizing: border-box;
+  vertical-align: top;
+  &__button {
+    box-sizing: border-box;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    padding: 12px;
+    margin-right: 20px;
+    border: 3px solid black;
+    border-radius: 100%;
+    transition: all .1s ease-out;
+    &.active {
+      transform: scale(0.9);
+      border-color: $button-active;
+      svg {
+        fill: $button-active;
+      }
+    }
+  }
+}
+
+.icon-play {
+  width: 50px;
+  margin-left: 6px;
+  transition: all .1s ease-out;
+}
