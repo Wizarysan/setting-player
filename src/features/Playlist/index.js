@@ -23,7 +23,13 @@ class Playlist extends Component {
           <div onClick={()=>{this.loadStartTrack('test.mp3')}} className="playlist__item__play">
             <IconPlay />
           </div>
+          <div className="playlist__item__left">
+
+          </div>
           <div className="playlist__item__name">Color&Color - 緑　Last Love♥護ってあげたい ～ Seventh Heaven</div>
+          <div className="playlist__item__right">
+
+          </div>
         </div>
         <div className="playlist__item">
           <div onClick={()=>{this.loadStartTrack('test2.mp3')}} className="playlist__item__play">

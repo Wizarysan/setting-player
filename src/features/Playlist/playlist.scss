@@ -1,5 +1,6 @@
 $item-active: #c8dfff;
 $item-hover: #e5f0ff;
+$play-hover: #2462b6;
 
 .playlist {
   display: inline-block;
@@ -32,9 +33,21 @@ $item-hover: #e5f0ff;
     display: inline-block;
     vertical-align: middle;
     padding-right: 10px;
+    float: left;
     .icon-play {
       vertical-align: middle;
-      width: 22px;
+      width: 32px;
     }
+    &:hover {
+      .icon-play {
+        fill: $play-hover;
+      }
+    }
+  }
+  &__left {
+    padding-left: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 25%;
   }
 }

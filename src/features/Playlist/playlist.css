@@ -28,8 +28,18 @@
 .playlist__item__play {
   display: inline-block;
   vertical-align: middle;
-  padding-right: 10px; }
+  padding-right: 10px;
+  float: left; }
 
 .playlist__item__play .icon-play {
   vertical-align: middle;
-  width: 22px; }
+  width: 32px; }
+
+.playlist__item__play:hover .icon-play {
+  fill: #2462b6; }
+
+.playlist__item__left {
+  padding-left: 40px;
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 25%; }
