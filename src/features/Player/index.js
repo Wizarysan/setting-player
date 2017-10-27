@@ -12,11 +12,12 @@ class Player extends Component {
     this.player = new window.Audio();
     this.state = {
       track: '',
+      nextTrack: false,
       isPaused: false,
     }
   }
 
-  loadTrack(trackName) {
+  loadStartTrack(trackName) {
     fetch('/api/track', {
       method: 'post',
       headers: {
@@ -30,8 +31,12 @@ class Player extends Component {
     .then(function(response) {
       return response.blob();
     }).then(function(blob){
-      console.log(this);
       this.player.src = window.URL.createObjectURL(blob);
+      this.player.play();
+      this.player.onended = () =>{
+        console.log('ended');
+        this.setState({nextTrack: true});
+      }
     }.bind(this))
   }
 
@@ -45,6 +50,10 @@ class Player extends Component {
     this.setState({isPaused: true});
   }
 
+  nextTrackLoaded(){
+    this.setState({nextTrack: false});
+  }
+
   render() {
     return (
       <div className="player">
@@ -56,7 +65,10 @@ class Player extends Component {
             <IconPause />
           </div>
         </div>
-        <Playlist loadTrack={this.loadTrack.bind(this)} startTrack={this.startTrack.bind(this)} />
+        <Playlist
+          loadStartTrack={this.loadStartTrack.bind(this)}
+          nextTrackLoaded={this.nextTrackLoaded.bind(this)}
+          nextTrack={this.state.nextTrack} />
       </div>
     );
   }
