@@ -49,27 +49,37 @@ class Playlist extends Component {
     this.props.loadStartTrack(track);
   }
 
+  changeIntensity(index){
+    let intensities = this.props.intensities,
+        nextIntensity = intensities.indexOf(this.state.statePlaylist.tracks[index].intensity)+1;
+    //TODO updating complex state issue https://stackoverflow.com/questions/43638938/updating-an-object-with-setstate-in-react    
+    // this.setState(prevState=>({
+    //   statePlaylist: {
+    //     ...prevState.statePlaylist,
+    //     tracks[index].intensity: intensities[nextIntensity]
+    //   }
+    // }))
+  }
+
   render() {
     return (
       <div className="playlist">
-        <div className="playlist__item">
-          <div onClick={()=>{this.loadStartTrack('test.mp3', 0)}} className="playlist__item__play">
-            <IconPlay />
-          </div>
-          <div className="playlist__item__left">
+        {this.state.statePlaylist.tracks.map((item, index)=>{
+          return <div className="playlist__item" key={index}>
+            <div onClick={()=>{this.loadStartTrack(item.file, index)}} className="playlist__item__play">
+              <IconPlay />
+            </div>
+            <div className="playlist__item__left">
+              <div className="playlist__item__intensity" onClick={()=>{this.changeIntensity(index)}}>
+                {item.intensity}
+              </div>
+            </div>
+            <div className="playlist__item__name">{item.artist} - {item.name}</div>
+            <div className="playlist__item__right">
 
+            </div>
           </div>
-          <div className="playlist__item__name">Color&Color - 緑　Last Love♥護ってあげたい ～ Seventh Heaven</div>
-          <div className="playlist__item__right">
-
-          </div>
-        </div>
-        <div className="playlist__item">
-          <div onClick={()=>{this.loadStartTrack('test2.mp3', 1)}} className="playlist__item__play">
-            <IconPlay />
-          </div>
-          <div className="playlist__item__name">Fuku6 - Toy dealer</div>
-        </div>
+        })}
       </div>
     );
   }

@@ -68,6 +68,7 @@ class Player extends Component {
         <Playlist
           loadStartTrack={this.loadStartTrack.bind(this)}
           nextTrackLoaded={this.nextTrackLoaded.bind(this)}
+          intensities={['ambient', 'easy', 'neutral', 'intense', 'denpa']}
           nextTrack={this.state.nextTrack} />
       </div>
     );
