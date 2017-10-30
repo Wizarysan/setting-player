@@ -40,6 +40,11 @@
 .playlist__item__play:hover .icon-play {
   fill: #2462b6; }
 
+.playlist__item__intensity {
+  user-select: none;
+  min-width: 70px;
+  text-align: center; }
+
 .playlist__item__left {
   padding-left: 10px;
   display: inline-block;

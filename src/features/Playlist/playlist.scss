@@ -46,6 +46,11 @@ $play-hover: #2462b6;
       }
     }
   }
+  &__intensity {
+    user-select: none;
+    min-width: 70px;
+    text-align: center;
+  }
   &__left {
     padding-left: 10px;
     display: inline-block;

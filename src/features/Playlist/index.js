@@ -51,14 +51,13 @@ class Playlist extends Component {
 
   changeIntensity(index){
     let intensities = this.props.intensities,
-        nextIntensity = intensities.indexOf(this.state.statePlaylist.tracks[index].intensity)+1;
-    //TODO updating complex state issue https://stackoverflow.com/questions/43638938/updating-an-object-with-setstate-in-react    
-    // this.setState(prevState=>({
-    //   statePlaylist: {
-    //     ...prevState.statePlaylist,
-    //     tracks[index].intensity: intensities[nextIntensity]
-    //   }
-    // }))
+        nextIntensity = intensities.indexOf(this.state.statePlaylist.tracks[index].intensity)+1,
+        statePlaylist = this.state.statePlaylist;
+        if(nextIntensity == intensities.length) {
+          nextIntensity = 0;
+        }
+        statePlaylist.tracks[index].intensity = intensities[nextIntensity];    
+    this.setState({statePlaylist})
   }
 
   render() {
