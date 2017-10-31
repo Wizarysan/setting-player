@@ -3,7 +3,17 @@
   width: 30%;
   padding: 50px;
   box-sizing: border-box;
-  vertical-align: top; }
+  vertical-align: top;
+  text-align: left; }
+  .controls__volume {
+    vertical-align: top;
+    display: inline-block; }
+    .controls__volume #volume {
+      height: 100px; }
+  .controls__buttons {
+    vertical-align: top;
+    display: inline-block;
+    padding: 0 0 0 50px; }
   .controls__button {
     box-sizing: border-box;
     position: relative;

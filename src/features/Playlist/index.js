@@ -34,9 +34,10 @@ class Playlist extends Component {
     if(nextProps.nextTrack) {
       //TODO last track in playlist
       let nextTrackIndex = this.state.playingIndex + 1;
+      console.log(nextTrackIndex);
       this.setState({playingIndex: nextTrackIndex})
       this.nextTrackLoaded();
-      this.loadStartTrack(this.state.statePlaylist.tracks[nextTrackIndex].file);
+      this.loadStartTrack(this.state.statePlaylist.tracks[nextTrackIndex].file, nextTrackIndex);
     }
   }
 
@@ -56,7 +57,7 @@ class Playlist extends Component {
         if(nextIntensity == intensities.length) {
           nextIntensity = 0;
         }
-        statePlaylist.tracks[index].intensity = intensities[nextIntensity];    
+        statePlaylist.tracks[index].intensity = intensities[nextIntensity];
     this.setState({statePlaylist})
   }
 
@@ -64,7 +65,7 @@ class Playlist extends Component {
     return (
       <div className="playlist">
         {this.state.statePlaylist.tracks.map((item, index)=>{
-          return <div className="playlist__item" key={index}>
+          return <div className={`playlist__item ${index == this.state.playingIndex ? 'active':''}`} key={index}>
             <div onClick={()=>{this.loadStartTrack(item.file, index)}} className="playlist__item__play">
               <IconPlay />
             </div>

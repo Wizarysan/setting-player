@@ -6,6 +6,19 @@ $button-active: #2462b6;
   padding: 50px;
   box-sizing: border-box;
   vertical-align: top;
+  text-align: left;
+  &__volume {
+    vertical-align: top;
+    display: inline-block;
+    #volume {
+      height:100px;
+    }
+  }
+  &__buttons {
+    vertical-align: top;
+    display: inline-block;
+    padding: 0 0 0 50px;
+  }
   &__button {
     box-sizing: border-box;
     position: relative;
