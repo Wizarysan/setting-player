@@ -16,6 +16,7 @@ class Playlist extends Component {
             name: '緑Last Love♥護ってあげたい ～ Seventh Heaven',
             artist: 'Color&Color',
             file: 'test.mp3',
+            length: 10,
             intensity: 'neutral'
           },
           {
@@ -23,6 +24,7 @@ class Playlist extends Component {
             name: 'Toy dealer',
             artist: 'Fuku6',
             file: 'test2.mp3',
+            length: 180,
             intensity: 'neutral'
           },
         ],

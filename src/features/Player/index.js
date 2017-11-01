@@ -4,6 +4,7 @@ import Playlist from './../Playlist';
 
 import IconPlay from './../../svg/play'
 import IconPause from './../../svg/pause'
+import IconNext from './../../svg/next'
 
 import './../../../node_modules/nouislider/distribute/nouislider.min.css';
 import './player.css';
@@ -53,8 +54,8 @@ class Player extends Component {
       this.player.src = window.URL.createObjectURL(blob);
       this.player.play();
       this.player.onended = () =>{
-        console.log('ended');
-        this.setState({nextTrack: true});
+        //this.setState({nextTrack: true});
+        this.nextTrack();
       }
     }.bind(this))
   }
@@ -67,6 +68,10 @@ class Player extends Component {
   pauseTrack() {
     this.player.pause();
     this.setState({isPaused: true});
+  }
+
+  nextTrack() {
+    this.setState({nextTrack: true});
   }
 
   nextTrackLoaded(){
@@ -84,8 +89,11 @@ class Player extends Component {
             <div onClick={()=>{this.startTrack()}} className="controls__button">
               <IconPlay />
             </div>
-            <div onClick={()=>{this.pauseTrack()}} className="controls__button">
+            <div onClick={()=>{this.pauseTrack()}} className={`controls__button ${this.state.isPaused ? 'active':''}`}>
               <IconPause />
+            </div>
+            <div onClick={()=>{this.nextTrack()}} className="controls__button">
+              <IconNext />
             </div>
           </div>
         </div>
