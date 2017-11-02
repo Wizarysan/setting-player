@@ -17,6 +17,7 @@ class Player extends Component {
       track: '',
       nextTrack: false,
       isPaused: false,
+      seekbarSearching: false,
     }
   }
 
@@ -37,7 +38,36 @@ class Player extends Component {
     });
   }
 
-  loadStartTrack(trackName) {
+  loadStartTrack(trackName, trackLength) {
+    clearInterval(this.progressInterval)
+    let seekbar = document.getElementById('seekbar');
+    if(seekbar.noUiSlider) {
+      seekbar.noUiSlider.destroy();
+    }
+    noUiSlider.create(seekbar, {
+      start: 0,
+      animate: false,
+      range: {
+        'min': 0,
+        'max': trackLength
+      }
+    });
+    this.progressInterval = setInterval(()=>{
+      if(this.state.seekbarSearching) return;
+      console.log(this.player.currentTime);
+      seekbar.noUiSlider.set(this.player.currentTime);
+    }, 500);
+    seekbar.noUiSlider.on('change', ()=>{
+    	this.player.currentTime = seekbar.noUiSlider.get();
+    });
+    seekbar.noUiSlider.on('start', ()=>{
+    	this.setState({seekbarSearching: true});
+      console.log(seekbar.noUiSlider.get());
+    });
+    seekbar.noUiSlider.on('end', ()=>{
+    	this.setState({seekbarSearching: false});
+      console.log(seekbar.noUiSlider.get());
+    });
     fetch('/api/track', {
       method: 'post',
       headers: {
@@ -53,6 +83,7 @@ class Player extends Component {
     }).then(function(blob){
       this.player.src = window.URL.createObjectURL(blob);
       this.player.play();
+      seekbar.noUiSlider.set(this.player.currentTime);
       this.player.onended = () =>{
         //this.setState({nextTrack: true});
         this.nextTrack();
@@ -81,6 +112,9 @@ class Player extends Component {
   render() {
     return (
       <div className="player">
+        <div className="controls__seekbar">
+          <div id="seekbar"></div>
+        </div>
         <div className="controls">
           <div className="controls__volume">
             <div id="volume"></div>

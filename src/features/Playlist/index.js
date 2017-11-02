@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {secondsToTime} from './../../utils/functions';
 import './playlist.css';
 
 import IconPlay from './../../svg/play'
@@ -16,7 +17,7 @@ class Playlist extends Component {
             name: '緑Last Love♥護ってあげたい ～ Seventh Heaven',
             artist: 'Color&Color',
             file: 'test.mp3',
-            length: 10,
+            length: 4,
             intensity: 'neutral'
           },
           {
@@ -24,7 +25,7 @@ class Playlist extends Component {
             name: 'Toy dealer',
             artist: 'Fuku6',
             file: 'test2.mp3',
-            length: 180,
+            length: 195,
             intensity: 'neutral'
           },
         ],
@@ -35,11 +36,11 @@ class Playlist extends Component {
   componentWillReceiveProps(nextProps) {
     if(nextProps.nextTrack) {
       //TODO last track in playlist
-      let nextTrackIndex = this.state.playingIndex + 1;
-      console.log(nextTrackIndex);
+      let nextTrackIndex = this.state.playingIndex + 1,
+          nextTrack = this.state.statePlaylist.tracks[nextTrackIndex];
       this.setState({playingIndex: nextTrackIndex})
       this.nextTrackLoaded();
-      this.loadStartTrack(this.state.statePlaylist.tracks[nextTrackIndex].file, nextTrackIndex);
+      this.loadStartTrack(nextTrack.file, nextTrackIndex, nextTrack.length);
     }
   }
 
@@ -47,9 +48,9 @@ class Playlist extends Component {
     this.props.nextTrackLoaded();
   }
 
-  loadStartTrack(track, index) {
+  loadStartTrack(track, index, length) {
     this.setState({playingIndex: index});
-    this.props.loadStartTrack(track);
+    this.props.loadStartTrack(track, length);
   }
 
   changeIntensity(index){
@@ -68,7 +69,7 @@ class Playlist extends Component {
       <div className="playlist">
         {this.state.statePlaylist.tracks.map((item, index)=>{
           return <div className={`playlist__item ${index == this.state.playingIndex ? 'active':''}`} key={index}>
-            <div onClick={()=>{this.loadStartTrack(item.file, index)}} className="playlist__item__play">
+            <div onClick={()=>{this.loadStartTrack(item.file, index, item.length)}} className="playlist__item__play">
               <IconPlay />
             </div>
             <div className="playlist__item__left">
@@ -78,7 +79,7 @@ class Playlist extends Component {
             </div>
             <div className="playlist__item__name">{item.artist} - {item.name}</div>
             <div className="playlist__item__right">
-
+              <span className="playlist__item__time">{secondsToTime(item.length)}</span>
             </div>
           </div>
         })}
