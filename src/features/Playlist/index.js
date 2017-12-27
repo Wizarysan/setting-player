@@ -36,28 +36,30 @@ class Playlist extends Component {
   componentDidMount() {
     //reach to API and create playlist from folder
     //Set first track to play
-    fetch('/api/playlist', {
-      method: 'post',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      // body: JSON.stringify(
-      //   {track: trackName}
-      // )
-    }).then(response => {
+    if(process.env.NODE_ENV === 'production') {
+      fetch('/api/playlist', {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        // body: JSON.stringify(
+        //   {track: trackName}
+        // )
+      }).then(response => {
 
-      response.json().then(list=>{
-        console.log(list)
-        this.setState({
-          playingIndex: 0,
-          statePlaylist: {
-            name: 'test playlist',
-            tracks: list,
-          }
+        response.json().then(list=>{
+          console.log(list)
+          this.setState({
+            playingIndex: 0,
+            statePlaylist: {
+              name: 'test playlist',
+              tracks: list,
+            }
+          })
         })
       })
-    })
+    }
   }
 
   componentWillReceiveProps(nextProps) {
