@@ -1,11 +1,11 @@
 .player {
   text-align: left;
-  justify-content: flex-start;
   display: block; }
-
-@media (min-width: 768px) {
-  .player {
-    display: flex; } }
+  .player__body {
+    justify-content: flex-start; }
+    @media (min-width: 768px) {
+      .player__body {
+        display: flex; } }
 
 .controls {
   position: sticky;
@@ -17,67 +17,55 @@
   box-sizing: border-box;
   vertical-align: top;
   text-align: left; }
-
-@media (max-width: 767px) {
-  .controls {
-    width: 100%; } }
-
-@media (min-width: 768px) {
-  .controls {
-    width: initial; } }
-
-.controls__volume {
-  vertical-align: middle;
-  display: inline-block; }
-
-.controls__volume #volume {
-  height: 120px; }
-
-@media (min-width: 768px) {
-  .controls__volume #volume {
-    height: 185px; } }
-
-.controls__buttons {
-  width: 90%;
-  vertical-align: middle;
-  display: inline-flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  box-sizing: border-box;
-  padding: 0 0 0 25px; }
-
-@media (min-width: 768px) {
+  @media (max-width: 767px) {
+    .controls {
+      width: 100%; } }
+  @media (min-width: 768px) {
+    .controls {
+      width: initial; } }
+  .controls__volume {
+    vertical-align: middle;
+    display: inline-block; }
+    .controls__volume #volume {
+      height: 120px; }
+      @media (min-width: 768px) {
+        .controls__volume #volume {
+          height: 185px; } }
   .controls__buttons {
-    vertical-align: top;
-    width: initial;
-    flex-direction: row;
-    align-items: flex-start; } }
-
-.controls__button {
-  box-sizing: border-box;
-  position: relative;
-  vertical-align: middle;
-  cursor: pointer;
-  display: inline-block;
-  max-width: 50px;
-  margin-left: 4%;
-  flex-basis: 50%;
-  transition: all .1s ease-out; }
-
-@media (min-width: 768px) {
+    width: 90%;
+    vertical-align: middle;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0 0 0 25px; }
+    @media (min-width: 768px) {
+      .controls__buttons {
+        vertical-align: top;
+        width: initial;
+        flex-direction: row;
+        align-items: flex-start; } }
   .controls__button {
+    box-sizing: border-box;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    display: inline-block;
     max-width: 50px;
-    margin-bottom: 15px; } }
-
-.controls__button svg {
-  width: 90%; }
-
-.controls__button.active {
-  transform: scale(0.9);
-  border-color: #2462b6; }
-
-.controls__button.active svg {
-  fill: #2462b6; }
+    margin-left: 4%;
+    flex-basis: 50%;
+    transition: all .1s ease-out; }
+    @media (min-width: 768px) {
+      .controls__button {
+        max-width: 50px;
+        margin-bottom: 15px; } }
+    .controls__button svg {
+      width: 90%; }
+    .controls__button.active {
+      transform: scale(0.9);
+      border-color: #2462b6; }
+      .controls__button.active svg {
+        fill: #2462b6; }
 
 .icon-play {
   margin-left: 3px;

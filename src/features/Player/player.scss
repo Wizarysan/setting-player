@@ -2,11 +2,13 @@
 $button-active: #2462b6;
 
 .player {
-  text-align: left;
-  justify-content: flex-start;
+  text-align: left;  
   display: block;
-  @include breakpoint(sm) {
-    display: flex;
+  &__body {
+    justify-content: flex-start;
+    @include breakpoint(sm) {
+      display: flex;
+    }
   }
 }
 

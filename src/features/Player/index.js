@@ -115,27 +115,29 @@ class Player extends Component {
         <div className="controls__seekbar">
           <div id="seekbar"></div>
         </div>
-        <div className="controls">
-          <div className="controls__volume">
-            <div id="volume"></div>
+        <div className="player__body">
+          <div className="controls">
+            <div className="controls__volume">
+              <div id="volume"></div>
+            </div>
+            <div className="controls__buttons">
+              <div onClick={()=>{this.startTrack()}} className="controls__button">
+                <IconPlay />
+              </div>
+              <div onClick={()=>{this.pauseTrack()}} className={`controls__button ${this.state.isPaused ? 'active':''}`}>
+                <IconPause />
+              </div>
+              <div onClick={()=>{this.nextTrack()}} className="controls__button">
+                <IconNext />
+              </div>
+            </div>
           </div>
-          <div className="controls__buttons">
-            <div onClick={()=>{this.startTrack()}} className="controls__button">
-              <IconPlay />
-            </div>
-            <div onClick={()=>{this.pauseTrack()}} className={`controls__button ${this.state.isPaused ? 'active':''}`}>
-              <IconPause />
-            </div>
-            <div onClick={()=>{this.nextTrack()}} className="controls__button">
-              <IconNext />
-            </div>
-          </div>
+          <Playlist
+            loadStartTrack={this.loadStartTrack.bind(this)}
+            nextTrackLoaded={this.nextTrackLoaded.bind(this)}
+            intensities={['ambient', 'easy', 'neutral', 'intense', 'denpa']}
+            nextTrack={this.state.nextTrack} />
         </div>
-        <Playlist
-          loadStartTrack={this.loadStartTrack.bind(this)}
-          nextTrackLoaded={this.nextTrackLoaded.bind(this)}
-          intensities={['ambient', 'easy', 'neutral', 'intense', 'denpa']}
-          nextTrack={this.state.nextTrack} />
       </div>
     );
   }
