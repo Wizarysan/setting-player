@@ -109,7 +109,19 @@ class Player extends Component {
     this.setState({nextTrack: false});
   }
 
+  //TODO rewrite buttons styles after component separation
   render() {
+    let playButton;
+    if(this.state.isPaused) {
+      playButton = (<div onClick={()=>{this.startTrack()}} className="controls__button">
+      <IconPlay />
+    </div>)
+    } else {
+      playButton = (<div onClick={()=>{this.pauseTrack()}} className={`controls__button ${this.state.isPaused ? 'active':''}`}>
+        <IconPause />
+      </div>)
+    }
+
     return (
       <div className="player">
         <div className="controls__seekbar">
@@ -121,12 +133,7 @@ class Player extends Component {
               <div id="volume"></div>
             </div>
             <div className="controls__buttons">
-              <div onClick={()=>{this.startTrack()}} className="controls__button">
-                <IconPlay />
-              </div>
-              <div onClick={()=>{this.pauseTrack()}} className={`controls__button ${this.state.isPaused ? 'active':''}`}>
-                <IconPause />
-              </div>
+              {playButton}              
               <div onClick={()=>{this.nextTrack()}} className="controls__button">
                 <IconNext />
               </div>
