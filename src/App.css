@@ -4,7 +4,7 @@
 
 .App-logo {
   animation: App-logo-spin infinite 10s linear;
-  height: 80px;
+  height: 40px;
 }
 
 .App-header {
@@ -38,7 +38,7 @@
 
 .glitch {
   color: white;
-  font-size: 100px;
+  font-size: 40px;
   position: relative;
   width: 400px;
   margin: 0 auto;
