@@ -1,37 +1,51 @@
+@import '../../utils/mixins.scss';
 $button-active: #2462b6;
 
 .controls {
   display: inline-block;
   width: 30%;
-  padding: 50px;
+  padding: 50px 20px 50px 50px;
   box-sizing: border-box;
   vertical-align: top;
   text-align: left;
   &__volume {
     vertical-align: top;
     display: inline-block;
+    width: 10%;
+    padding-top: 15px;
     #volume {
       height:100px;
     }
   }
   &__buttons {
+    box-sizing: border-box;
     vertical-align: top;
     display: inline-block;
-    padding: 0 0 0 50px;
+    width: 85%;
+    max-width: 250px;
+    padding: 0 0 0 25px;
   }
   &__button {
     box-sizing: border-box;
     position: relative;
     vertical-align: middle;
     cursor: pointer;
-    display: inline-block;
-    width: 80px;
-    height: 80px;
+    display: block;
+    width: 30%;    
     padding: 12px;
-    margin-right: 20px;
+    margin-right: 3%;
     border: 3px solid black;
     border-radius: 100%;
     transition: all .1s ease-out;
+    @include breakpoint(md) {
+      display: inline-block;
+    }
+    svg {
+      width:100%;
+      height:100%;
+      line-height: 1;
+      vertical-align: middle;
+    }
     &.active {
       transform: scale(0.9);
       border-color: $button-active;
@@ -43,7 +57,6 @@ $button-active: #2462b6;
 }
 
 .icon-play {
-  width: 50px;
-  margin-left: 6px;
+  margin-left: 3px;
   transition: all .1s ease-out;
 }

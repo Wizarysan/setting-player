@@ -1,39 +1,58 @@
 .controls {
   display: inline-block;
   width: 30%;
-  padding: 50px;
+  padding: 50px 20px 50px 50px;
   box-sizing: border-box;
   vertical-align: top;
   text-align: left; }
-  .controls__volume {
-    vertical-align: top;
-    display: inline-block; }
-    .controls__volume #volume {
-      height: 100px; }
-  .controls__buttons {
-    vertical-align: top;
-    display: inline-block;
-    padding: 0 0 0 50px; }
+
+.controls__volume {
+  vertical-align: top;
+  display: inline-block;
+  width: 10%;
+  padding-top: 15px; }
+
+.controls__volume #volume {
+  height: 100px; }
+
+.controls__buttons {
+  box-sizing: border-box;
+  vertical-align: top;
+  display: inline-block;
+  width: 85%;
+  max-width: 250px;
+  padding: 0 0 0 25px; }
+
+.controls__button {
+  box-sizing: border-box;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  display: block;
+  width: 30%;
+  padding: 12px;
+  margin-right: 3%;
+  border: 3px solid black;
+  border-radius: 100%;
+  transition: all .1s ease-out; }
+
+@media (min-width: 992px) {
   .controls__button {
-    box-sizing: border-box;
-    position: relative;
-    vertical-align: middle;
-    cursor: pointer;
-    display: inline-block;
-    width: 80px;
-    height: 80px;
-    padding: 12px;
-    margin-right: 20px;
-    border: 3px solid black;
-    border-radius: 100%;
-    transition: all .1s ease-out; }
-    .controls__button.active {
-      transform: scale(0.9);
-      border-color: #2462b6; }
-      .controls__button.active svg {
-        fill: #2462b6; }
+    display: inline-block; } }
+
+.controls__button svg {
+  width: 100%;
+  height: 100%;
+  line-height: 1;
+  vertical-align: middle; }
+
+.controls__button.active {
+  transform: scale(0.9);
+  border-color: #2462b6; }
+
+.controls__button.active svg {
+  fill: #2462b6; }
 
 .icon-play {
-  width: 50px;
-  margin-left: 6px;
+  margin-left: 3px;
   transition: all .1s ease-out; }
