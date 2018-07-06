@@ -1,7 +1,15 @@
+.playlist {
+  padding: 30px; }
+
+@media (min-width: 768px) {
+  .playlist {
+    display: inline-block; } }
+
 .playlist__item {
   cursor: pointer;
   padding: 10px 5px;
   font-size: 18px;
+  text-align: left;
   border-bottom: 1px solid #e5f0ff;
   transition: all .2s ease-out; }
 
@@ -15,7 +23,8 @@
   display: inline-block;
   vertical-align: middle;
   line-height: 1.8;
-  max-width: 50%;
+  padding: 0 20px;
+  max-width: 70%;
   padding-left: 20px;
   overflow-x: hidden;
   white-space: nowrap; }
@@ -41,4 +50,4 @@
   padding-left: 10px;
   display: inline-block;
   vertical-align: middle;
-  max-width: 25%; }
+  max-width: 20%; }
