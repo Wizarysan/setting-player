@@ -1,50 +1,70 @@
 @import '../../utils/mixins.scss';
 $button-active: #2462b6;
 
+.player {
+  text-align: left;
+  justify-content: center;
+  display: block;
+  @include breakpoint(sm) {
+    display: flex;
+  }
+}
+
 .controls {
+  position: sticky;
+  top:0;
+  white-space: nowrap;
+  //width:100%;
+  background-color: #fff;
   display: inline-block;
-  width: 30%;
-  padding: 50px 20px 50px 50px;
+  padding: 40px 30px;
   box-sizing: border-box;
   vertical-align: top;
   text-align: left;
+  @include breakpoint(xs) {
+    width:100%;
+  }
+  @include breakpoint(sm) {
+    width:initial;
+    max-width: 170px;
+  }
   &__volume {
-    vertical-align: top;
+    vertical-align: middle;
     display: inline-block;
-    width: 10%;
-    padding-top: 15px;
     #volume {
-      height:100px;
+      height:120px;
+      @include breakpoint(sm) {
+        height:185px;
+      }
     }
   }
   &__buttons {
+    width: 90%;
+    vertical-align: middle;
+    display: inline-flex;
+    justify-content: center;
     box-sizing: border-box;
-    vertical-align: top;
-    display: inline-block;
-    width: 85%;
-    max-width: 250px;
     padding: 0 0 0 25px;
+    @include breakpoint(sm) {
+      width:initial;
+      flex-direction: column;
+    }
   }
   &__button {
     box-sizing: border-box;
     position: relative;
     vertical-align: middle;
     cursor: pointer;
-    display: block;
-    width: 30%;    
-    padding: 12px;
-    margin-right: 3%;
-    border: 3px solid black;
-    border-radius: 100%;
+    display: inline-block;
+    max-width: 80px;  
+    margin-left: 4%;
     transition: all .1s ease-out;
-    @include breakpoint(md) {
-      display: inline-block;
+    @include breakpoint(sm) {
+      max-width: 60px;
+      margin-bottom: 15px;
     }
     svg {
-      width:100%;
-      height:100%;
-      line-height: 1;
-      vertical-align: middle;
+      width: 90%;
     }
     &.active {
       transform: scale(0.9);
@@ -57,6 +77,6 @@ $button-active: #2462b6;
 }
 
 .icon-play {
-  margin-left: 3px;
+  margin-left: 6px;
   transition: all .1s ease-out;
 }
