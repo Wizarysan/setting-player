@@ -84,7 +84,7 @@ class Playlist extends Component {
     let intensities = this.props.intensities,
         nextIntensity = intensities.indexOf(this.state.statePlaylist.tracks[index].intensity)+1,
         statePlaylist = this.state.statePlaylist;
-        if(nextIntensity == intensities.length) {
+        if(nextIntensity === intensities.length) {
           nextIntensity = 0;
         }
         statePlaylist.tracks[index].intensity = intensities[nextIntensity];
@@ -95,7 +95,7 @@ class Playlist extends Component {
     return (
       <div className="playlist">
         {this.state.statePlaylist.tracks.map((item, index)=>{
-          return <div className={`playlist__item ${index == this.state.playingIndex ? 'active':''}`} key={index}>
+          return <div className={`playlist__item ${index === this.state.playingIndex ? 'active':''}`} key={index}>
             <div onClick={()=>{this.loadStartTrack(item.file, index, item.length)}} className="playlist__item__play">
               <IconPlay />
             </div>
