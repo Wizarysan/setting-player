@@ -1,1 +1,1 @@
-Player with mood controls. In progress~
+Player with mood controls.
