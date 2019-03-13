@@ -38,6 +38,7 @@ class Player extends Component {
     });
   }
 
+  //Method is too crowded, it's good idea to break it apart
   loadStartTrack(trackName, trackLength) {
     clearInterval(this.progressInterval)
     let seekbar = document.getElementById('seekbar');
@@ -91,6 +92,11 @@ class Player extends Component {
     }.bind(this))
   }
 
+  nextTrackLoaded(){
+    this.setState({nextTrack: false});
+  }
+
+  //Rewrite to arrow functions to rid of handler arrow wrappers
   startTrack() {
     this.player.play();
     this.setState({isPaused: false});
@@ -105,11 +111,7 @@ class Player extends Component {
     this.setState({nextTrack: true});
   }
 
-  nextTrackLoaded(){
-    this.setState({nextTrack: false});
-  }
-
-  //TODO rewrite buttons styles after component separation
+  //TODO To one component, rewrite buttons styles after component separation
   render() {
     let playButton;
     if(this.state.isPaused) {
@@ -139,6 +141,7 @@ class Player extends Component {
               </div>
             </div>
           </div>
+          {/*Move bindings to constructor*/}
           <Playlist
             loadStartTrack={this.loadStartTrack.bind(this)}
             nextTrackLoaded={this.nextTrackLoaded.bind(this)}
