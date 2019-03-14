@@ -62,6 +62,7 @@ class Playlist extends Component {
     }
   }
 
+  //TODO will be deprecated, need to refactor
   componentWillReceiveProps(nextProps) {
     if(nextProps.nextTrack) {
       //TODO last track in playlist
@@ -73,6 +74,7 @@ class Playlist extends Component {
     }
   }
 
+  //TODO refactor this strange thing as well. Why had i done this?
   nextTrackLoaded() {
     this.props.nextTrackLoaded();
   }
@@ -93,6 +95,7 @@ class Playlist extends Component {
     this.setState({statePlaylist})
   }
 
+  //TODO move singe track in separated component?
   render() {
     return (
       <div className="playlist">
